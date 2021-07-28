@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>live stream test</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.wrapper{
+			max-width: 1920px;
+			margin: 0 auto;
+			height: 100vh;
+			background: lightblue;
+
+		}
+		h1{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+
+		.video{
+			z-index: 10;
+			position: absolute;
+			opacity: 0;
+			top: -500px;
+			transition: all 2s ease-in-out .5s;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.video.active, .active.video {
+			opacity: 1;
+			top: 50%;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="video" id='video'>
+		<iframe src="https://vk.com/video_ext.php?oid=79051295&id=456239307&hash=5825b9e5a3ee61ca&autoplay=1" width="426" height="240" frameborder="0" allowfullscreen></iframe>
+	</div>
+	<div class="wrapper">
+		<h1>
+			Live stream content
+		</h1>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+	
+	(function () {
+	var custom_js_data = {
+		"start_time": '2021-07-22T12:15:23.087602+03:00',
+		'current_time': false,
+		'url': 'http://worldtimeapi.org/api/timezone/Europe/Moscow',
+		'custom_js_video_id': 'video',
+		'active_class_name': 'active'
+	}
+
+
+	fetch(custom_js_data['url'])
+	  .then((response) => {
+	    return response.json();
+	  })
+	  .then((data) => {
+	    
+	  	custom_js_data['start_time'] = Date.parse(custom_js_data['start_time']);
+	    custom_js_data['current_time'] = Date.parse(data['datetime']);
+	    if (custom_js_data['start_time'] - custom_js_data['current_time'] < 173860) {
+	    	console.log(1)
+	    	document.getElementById(custom_js_data['custom_js_video_id']).classList.add(custom_js_data['active_class_name'])
+	    }
+	    
+	  });
+	  })();
+</script>
+</html>

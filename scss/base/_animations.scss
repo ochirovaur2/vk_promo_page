@@ -1,0 +1,169 @@
+
+
+._anim-show_left_to_right {
+	transform: translate(-100px, 0);
+	opacity: 0;
+	transition: all $transition-speed ease-out 0s;
+}
+
+._anim-show_left_to_right._active,
+._active._anim-show_left_to_right{
+	opacity: 1;
+	transform: translate(0, 0)
+}
+
+._anim-show_right_to_left {
+
+	transform: translate(100px, 0);
+	opacity: 0;
+	transition: all $transition-speed ease-out 0s;
+}
+
+._anim-show_right_to_left._active,
+._active._anim-show_right_to_left{
+	opacity: 1;
+	transform: translate(0, 0)
+}
+
+
+._anim-show_up_to_down {
+	overflow: hidden;
+	transform: translate(0, -100px);
+	opacity: 0;
+	transition: all $transition-speed ease-out 0s;
+}
+
+._anim-show_up_to_down._active,
+._active._anim-show_up_to_down{
+	opacity: 1;
+	transform: translate(0, 0)
+}
+
+
+._anim-show_down_to_up {
+	
+	transform: translate(0, 100px);
+	opacity: 0;
+	transition: all $transition-speed ease-out 0s;
+}
+
+._anim-show_down_to_up._active,
+._active._anim-show_down_to_up{
+	opacity: 1;
+	transform: translate(0, 0)
+}
+._anim-show_up_to_down_header {
+	
+	transform: translate(0, -100%);
+	opacity: 0;
+	transition: all $transition-speed ease-out 0s;
+}
+
+._anim-show_up_to_down_header._active,
+._active._anim-show_up_to_down_header{
+	opacity: 1;
+	transform: translate(-50%, 0)
+}
+
+
+._anim-show_down_to_up_img {
+	
+	transform: translate(0, 400px);
+
+	opacity: 0;
+	transition: all $transition-speed ease-out 0s;
+}
+
+._anim-show_down_to_up_img._active,
+._active._anim-show_down_to_up_img{
+	opacity: 1;
+	transform: translate(0, 0)
+}
+
+// .anim_delay {
+// 	transition: all $transition-speed ease-out 1s;
+// }
+#anim_items_show_box{
+	z-index: 0; 
+    transform: translate(0, -30vw);
+    transition: all $transition-speed ease-out 0s;
+    @include respond(big-desktop) { 
+		transform: translate(0, -500px);
+
+		
+	}
+}
+#anim_items_show_box.active,
+._active#anim_items_show_box{
+	transform: translate(0, 0);
+}
+
+
+._anim-show_scale {
+	overflow: hidden;
+	transform: scale(0);
+	
+	transition: all $transition-speed ease-out 0s;
+}
+._anim-show_scale._active,
+._active._anim-show_scale{
+	
+	transform: scale(1)
+}
+
+._anim-show_round {
+	overflow: hidden;
+	transform: translate(100%, -100%);
+	
+	transition: all $transition-speed cubic-bezier( 0.79, 0.33, 0.14, 0.53 )  0s;
+}
+
+._anim-show_round._active,
+._active._anim-show_round{
+	
+	transform: translate(0, 0);
+}
+
+
+.up_down_custom_class{
+
+animation-duration: 3s;
+	animation-name: up_down_custom;
+	animation-iteration-count: infinite;
+}
+@keyframes up_down_custom {
+  0% {
+   	transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -15%);
+  }
+  100% {
+    transform: translate(0, 0%);
+  }
+}
+
+
+.heart_custom_class{
+
+	animation: heart_custom 1s infinite alternate;
+	transform-origin: center;
+}
+
+@keyframes heart_custom {
+  to { transform: scale(1.04) };
+}
+
+._anim-show_fadeout {
+	
+	opacity: 0;
+	
+	transition: all 0.3s ease-out 0s;
+}
+._anim-show_fadeout._active,
+._active._anim-show_fadeout{
+	
+	opacity: 1;
+}
+
+

@@ -1,0 +1,48 @@
+
+.custom-heading-primary{
+	font-family: 'Manrope-bold',  sans-serif;
+	@include respond(first-desc) { 
+		font-size:42px;
+	}
+	font-size: 3.4vw;
+	line-height: 1.5;
+	
+	color: $color-dark;
+	text-align: center;
+	position: relative;
+	@include respond(tab-land) { 
+		margin-bottom: 10px;
+	}
+	@include respond(tab-port) { 
+		margin-bottom: -3px;
+	}
+	@include respond(big-desktop) { 
+		font-size:45px;
+	}
+	&_light{
+		color: $color-light-1;
+	}
+	
+}
+
+.custom-paragraph{
+	font-family: 'Manrope-medium',  sans-serif;
+	font-size: 1.4vw;
+	line-height: 1.5;
+	color: $color-primary;
+	@include respond(big-desktop) { 
+		font-size:22px;
+	}
+	
+	&_bold{
+		font-weight: 600;
+	}
+	&_light{
+		font-family: 'Manrope-light',  sans-serif;
+		color: $color-light-1;
+	}
+}
+
+.custom-sup{
+	font-size: 0.6em;
+}

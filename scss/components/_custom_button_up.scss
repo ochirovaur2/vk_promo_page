@@ -1,0 +1,33 @@
+#custom_button_up {
+  color: $color-light-1;
+  background-color: $color-gray;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+ 
+  z-index: 1000;
+}
+#custom_button_up::after {
+ 
+}
+#custom_button_up:hover {
+  cursor: pointer;
+  background-color: #333;
+  color: $color-light-1;
+}
+#custom_button_up:active {
+  background-color: #555;
+}
+#custom_button_up.custom_button_up__show {
+  opacity: 1;
+  visibility: visible;
+}

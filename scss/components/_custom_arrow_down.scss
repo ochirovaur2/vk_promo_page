@@ -1,0 +1,23 @@
+.custom-arrow-down{
+	width: 2.5vw !important;
+    height: 2.5vw;
+    position: absolute;
+    bottom: 0.541667vw;
+    right: 0.341667vw;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    @include respond(big-desktop) { 
+		width: 50px !important;
+    	height: 50px;
+    	bottom: 20px;
+    	right: 10px;
+	}
+    &__img{
+    	transition: all .5s ease-out 0s;
+    	position: relative;
+    	top: 6%;
+    }
+    
+}

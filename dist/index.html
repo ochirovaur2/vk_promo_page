@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+
+<!--         <link rel="stylesheet" href="css/icon-font.css">
+ -->        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.ico">
+        
+        <title>Midea</title>
+    </head>
+    <body>
+    
+    <section class="custom_wrapper">
+<section class="custom_section custom_section-header _anim-items _anim-show_up_to_down_header" id='custom_js_header'>
+    <div class="custom_container custom_section-header__container" id='custom-header-js'>
+      <a href="https://google.com/"><img src="img/more.png" alt="more" class="custom_section-header__img_more"></a>
+        
+        <img src="img/shadow.png" alt="shadow" class="custom_section-header__img_shadow">
+        <img src="img/close.png" alt="close" class="custom_section-header__img_close" id='custom_js_close'>
+        <img src="img/star.png" alt="star" class="custom_section-header__img_star _anim-show_fadeout" id='custom_js_star'>
+        <img src="img/star_1.png" alt="star" class="custom_section-header__img_star custom_section-header__img_star_1 _anim-show_fadeout" id='custom_js_star_1'>
+        <img src="img/planet.png" alt="planet" class=" custom_section-header__img_planet _anim-show_fadeout" id='custom_js_planet'>
+        <img src="img/round.png" alt="round" class="custom_section-header__img_round _anim-items _anim-show_round" id='custom_js_round'>
+        <img src="img/camera.png" alt="camera" class="custom_section-header__img_camera">
+        <img src="img/heart.png" alt="heart" class="custom_section-header__img_heart" id='custom_js_heart'>
+        <img src="img/words.png" alt="words" class="custom_section-header__img_words _anim-show_scale" id='custom_js_words'>
+        <img src="img/round_1.png" alt="round" class="custom_section-header__img_round_1 _anim-show_scale" id='custom_js_round_1'>
+        <img src="img/spaceman.png" alt="spaceman" class="custom_section-header__img_spaceman" id='custom_js_spaceman'>   
+        <img width="1920" height="571" alt="HUAWEI huawei vmall : " src="img/back_1.jpg" class="custom_section-header__img lazy-load"/>
+        
+    </div>
+    <div class="custom_container">
+      <div class="custom_section-header__gradient">
+        
+      </div>
+    </div>
+</section>
+
+
+
+<section class="custom_section custom_section-content">
+  <div class="custom_container custom_section-header__container" id='custom-header-js'>
+     
+         
+        <img width="1920" height="571" alt="HUAWEI huawei vmall : " src="img/free/Freebuds-4-PC_06.jpg" class="custom_section-header__img lazy-load"/>
+    </div>
+    <div class="custom_container custom_section-header__container" id='custom-header-js'>
+     
+         
+        <img width="1920" height="571" alt="HUAWEI huawei vmall : " src="img/free/Freebuds-4-PC_07.jpg" class="custom_section-header__img lazy-load"/>
+    </div>
+</section>
+
+
+</section>
+
+
+
+    </body>
+    <script type="text/javascript">
+        "use strict";
+
+        (function(){
+
+       function custom_rotate_js(move_area, rotate_object_name){
+            function offset(el) {
+              var rect = el.getBoundingClientRect();
+              var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+              var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              return {
+                top: rect.top + scrollTop,
+                left: rect.left + scrollLeft
+              };
+            }
+            window.addEventListener('mousemove', e => {
+            var rotate_obj = document.querySelector(rotate_object_name);
+            var x = (offset(rotate_obj).left) + (rotate_obj.getBoundingClientRect().width / 2);
+            var y = (offset(rotate_obj).top) + (rotate_obj.getBoundingClientRect().height / 2);
+            var rad = Math.atan2(event.pageX - x, event.pageY - y);
+            var rot = (rad * (180 / Math.PI) * -1) + 100;
+            
+            if ( -52  < rot && rot < -34 ){
+              document.getElementById('custom_js_star').classList.add("_active")
+            } else{
+              document.getElementById('custom_js_star').classList.remove("_active")
+            }
+
+            if ( 13  < rot && rot < 20){
+              document.getElementById('custom_js_star_1').classList.add("_active")
+            } else{
+              document.getElementById('custom_js_star_1').classList.remove("_active")
+            }
+
+            if ( -6  < rot && rot < 7){
+              document.getElementById('custom_js_planet').classList.add("_active")
+            } else{
+              document.getElementById('custom_js_planet').classList.remove("_active")
+            }
+
+
+            if ( -90  < rot && rot < 50 ) {
+              console.log('ok')
+              console.log(rot)
+              rotate_obj.style.transform =  'rotate(' + rot + 'deg)'; 
+              
+            } else{
+              rotate_obj.style.transform =  'rotate(' + 0 + 'deg)'; 
+            }
+            
+
+
+          });
+       }
+
+       custom_rotate_js('.custom_section-header','.custom_section-header__img_camera' );
+
+
+
+        function custom_btn_click(){
+          var btn_1 = document.getElementById('custom_js_close');
+          
+          
+
+          btn_1.onclick = function(){
+            console.log(1)
+            document.getElementById('custom_js_header').classList.remove("_active");
+
+            
+          };
+          
+        };
+        custom_btn_click()
+
+
+var animItems = document.querySelectorAll("._anim-items");
+
+if (animItems.length > 0) {
+  window.addEventListener("scroll", animOnScroll);
+  var left_scroll = 100;
+  var scrollYPoint;
+
+  function animOnScroll() {
+    var _loop = function _loop(index) {
+      var animItem = animItems[index];
+      var animItemHeight = animItem.offsetHeight;
+      var animItemOffSet = offset(animItem).top;
+      var animStart = 4;
+      var animItemPoint = window.innerHeight - animItemHeight / animStart;
+
+      if (animItemHeight > window.innerHeight) {
+        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+
+      if (pageYOffset > animItemOffSet - animItemPoint && pageYOffset < animItemOffSet + animItemHeight) {
+       
+        
+        
+        if (animItem.classList.contains("_anim-show_up_to_down_header")) {
+          setTimeout(function () {
+            
+            document.getElementById('custom_js_round').classList.add("_active");
+            document.getElementById('custom_js_round_1').classList.add("_active");
+            document.getElementById('custom_js_words').classList.add("_active");
+            document.getElementById('custom_js_spaceman').classList.add("up_down_custom_class");
+            
+            document.getElementById('custom_js_heart').classList.add("heart_custom_class");
+            
+            
+          },1100);
+        } 
+       
+        if (animItem.classList.contains("custom-carusel-js") && carusel_flag == false) {
+          carusel_flag = true
+          setTimeout(function () {
+            carusel(true)
+            caruselLoop()
+          }, 0);
+        }
+        else if (animItem.classList.contains("anim_delay_03")) {
+          setTimeout(function () {
+            animItem.classList.add("_active");
+          }, 350); 
+        }
+        else if (animItem.classList.contains("anim_delay_1")) {
+          setTimeout(function () {
+            animItem.classList.add("_active");
+          }, 800);
+        } else if (animItem.classList.contains("anim_delay_2")) {
+          setTimeout(function () {
+            animItem.classList.add("_active");
+          }, 1200);
+        } else if (animItem.classList.contains("anim_delay_3")) {
+          setTimeout(function () {
+            animItem.classList.add("_active");
+          }, 1600);
+        } else if (animItem.classList.contains("anim_delay_4")) {
+          setTimeout(function () {
+            animItem.classList.add("_active");
+          }, 2000);
+        } else {
+          animItem.classList.add("_active");
+        }
+      } else {
+        if (!animItem.classList.contains("_anim-no-hide")) {
+          animItem.classList.remove("_active");
+        }
+      }
+    };
+
+    for (var index = 0; index < animItems.length; index++) {
+      _loop(index);
+    }
+  }
+
+  function offset(el) {
+    var rect = el.getBoundingClientRect();
+    var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return {
+      top: rect.top + scrollTop,
+      left: rect.left + scrollLeft
+    };
+  }
+
+  setTimeout(function () {
+    animOnScroll();
+  }, 300);
+}
+
+  function carusel(to_right) {
+    var js_features_1 = document.getElementById('js-features-1');
+    var js_features_2 = document.getElementById('js-features-2');
+    var js_features_3 = document.getElementById('js-features-3');
+    var js_features_4 = document.getElementById('js-features-4');
+    
+    var features = [js_features_1, js_features_2, js_features_3,js_features_4]
+    
+    var i = 0; 
+    function myLoop(to_right) {         //  create a loop function
+
+      setTimeout(function() {   //  call a 3s setTimeout when the loop is called
+        if(to_right !==  true){
+          
+        } else{
+          features[i].style["boxShadow"] = '0px 0px 12px 3px #7fa3ec'
+          var x = features[i]
+          setTimeout(function () {
+            x.style["boxShadow"] = '0px 0px 0 0 #7fa3ec'
+          }, 3000);
+        }
+                                 
+        
+        i++;                    
+        if (i <= features.length - 1) {          
+          myLoop(to_right);             
+        }     
+                         
+      }, 500)
+    }
+    myLoop(to_right)
+
+  }
+  var caruselCounter = 0; 
+  
+  function caruselLoop() {
+
+    setTimeout(function() {
+      caruselCounter++;
+      if(caruselCounter < 100){
+        caruselLoop()
+      }
+      carusel(true)
+    }, 6000)
+  }
+  var carusel_flag = false;
+
+ 
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+(function () {
+  var anchors = document.querySelectorAll('a[href*="#"]');
+
+  var _iterator = _createForOfIteratorHelper(anchors),
+      _step;
+
+  try {
+    var _loop = function _loop() {
+      var anchor = _step.value;
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        var blockID = anchor.getAttribute('href').substr(1);
+        document.getElementById(blockID).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    };
+
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      _loop();
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+})();
+  
+
+  (function(){
+    
+        
+    (function() {
+      'use strict';
+
+      function trackScroll() {
+        var scrolled = window.pageYOffset;
+        var coords = document.documentElement.clientHeight;
+
+        if (scrolled > coords) {
+          goTopBtn.classList.add('custom_button_up__show');
+        }
+        if (scrolled < coords) {
+          goTopBtn.classList.remove('custom_button_up__show');
+        }
+      }
+
+      
+    })();
+/* end begin Back to Top button  */
+  })();
+
+})();
+  </script>
+</html>
